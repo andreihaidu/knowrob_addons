@@ -13,4 +13,9 @@
 rosrun rosprolog rosprolog knowrob_sim_games
 ```
 
+### Local vis ###
+```
+roslaunch knowrob_sim_games knowrob_sim_games_vis.launch
+```
+
 

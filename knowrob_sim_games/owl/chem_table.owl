@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+          <!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns'>
+          <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema'>
+          <!ENTITY owl 'http://www.w3.org/2002/07/owl'>
+          <!ENTITY xsd 'http://www.w3.org/2001/XMLSchema#'>
+          <!ENTITY knowrob 'http://knowrob.org/kb/knowrob.owl#'>
+          <!ENTITY sim-map 'http://knowrob.org/kb/chem_table.owl#'>
+          ]>
+<rdf:RDF
+
+   xmlns:computable="http://knowrob.org/kb/computable.owl#"
+   xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:knowrob="http://knowrob.org/kb/knowrob.owl#"
+   xmlns:sim-map="http://knowrob.org/kb/chem_table.owl#"
+   xml:base="http://knowrob.org/kb/chem_table.owl">
+
+   <!-- =========================================== -->
+   <!-- |   Ontology Imports                      | -->
+   <!-- =========================================== -->
+
+   <owl:Ontology rdf:about="http://knowrob.org/kb/chem_table.owl">
+       <owl:imports rdf:resource="package://knowrob_common/owl/knowrob.owl"/>
+   </owl:Ontology>
+
+    <!-- GENERAL DEFS -->
+    <owl:ObjectProperty rdf:about="&knowrob;describedInMap"/>
+    <owl:DatatypeProperty rdf:about="&knowrob;depthOfObject"/>
+    <owl:DatatypeProperty rdf:about="&knowrob;heightOfObject"/>
+    <owl:DatatypeProperty rdf:about="&knowrob;widthOfObject"/>
+    <owl:DatatypeProperty rdf:about="&knowrob;vectorX"/>
+    <owl:DatatypeProperty rdf:about="&knowrob;vectorY"/>
+    <owl:DatatypeProperty rdf:about="&knowrob;vectorZ"/>
+    <owl:Class rdf:about="&knowrob;SemanticEnvironmentMap"/>
+    <owl:Class rdf:about="&knowrob;SemanticMapPerception"/>
+    <owl:Class rdf:about="&knowrob;TimePoint"/>
+    <owl:Class rdf:about="&knowrob;Vector"/>
+    <owl:DatatypeProperty rdf:about="&knowrob;pathToCadModel"/>
+
+
+    <!-- SemanticEnvironmentMap -->
+    <owl:NamedIndividual rdf:about="&sim-map;SimChemMap_gVb3">
+        <rdf:type rdf:resource="&knowrob;SemanticEnvironmentMap"/>
+    </owl:NamedIndividual>
+
+    <!-- timepoint -->
+    <owl:NamedIndividual rdf:about="&sim-map;timepoint_0">
+        <rdf:type rdf:resource="&knowrob;TimePoint"/>
+    </owl:NamedIndividual>
+
+
+    <owl:Class rdf:about="&knowrob;OpticalTable">
+      <!-- TODO check for OpticalTable in the ontology -->
+      <rdfs:subClassOf rdf:resource="&knowrob;SpatialThing-Localized"/>
+	  <rdfs:subClassOf>
+	      <owl:Restriction>
+    		  <owl:onProperty rdf:resource="&knowrob;pathToCadModel"/>
+    		  <owl:hasValue rdf:datatype="&xsd;string">package://sim/chem/optical_table.dae</owl:hasValue>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    </owl:Class>
+
+  <owl:NamedIndividual rdf:about="&knowrob;OpticalTable_gthT">
+      <rdf:type rdf:resource="&knowrob;OpticalTable"/>
+      <knowrob:describedInMap rdf:resource="&sim-map;SimChemMap_gVb3"/>
+  </owl:NamedIndividual>
+
+   <owl:NamedIndividual rdf:about="&knowrob;SemanticMapPerception_OpticalTable">
+        <rdf:type rdf:resource="&knowrob;SemanticMapPerception"/>
+        <knowrob:eventOccursAt rdf:resource="&sim-map;Transformation_qtqV"/>
+        <knowrob:startTime rdf:resource="&sim-map;timepoint_0"/>
+        <knowrob:objectActedOn rdf:resource="&knowrob;OpticalTable_gthT"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&sim-map;Transformation_qtqV">
+        <rdf:type rdf:resource="&knowrob;Transformation"/>
+        <knowrob:quaternion rdf:datatype="&xsd;string">1.0 0.0 0.0 0.0</knowrob:quaternion>
+        <knowrob:translation rdf:datatype="&xsd;string">0.5 0.0 0.0</knowrob:translation>
+    </owl:NamedIndividual>
+
+  <owl:Class rdf:about="&knowrob;MagneticStirrer">
+      <!-- TODO check for MagneticStirrer in the ontology -->
+      <rdfs:subClassOf rdf:resource="&knowrob;SpatialThing-Localized"/>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+      <owl:onProperty rdf:resource="&knowrob;pathToCadModel"/>
+      <owl:hasValue rdf:datatype="&xsd;string">package://sim/chem/magnetic_stirrer.dae</owl:hasValue>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    </owl:Class>
+
+
+  <owl:NamedIndividual rdf:about="&knowrob;MagneticStirrer_2mh1">
+      <rdf:type rdf:resource="&knowrob;MagneticStirrer"/>
+      <knowrob:describedInMap rdf:resource="&sim-map;SimChemMap_gVb3"/>
+  </owl:NamedIndividual>
+
+   <owl:NamedIndividual rdf:about="&knowrob;SemanticMapPerception_MagneticStirrer1">
+        <rdf:type rdf:resource="&knowrob;SemanticMapPerception"/>
+        <knowrob:eventOccursAt rdf:resource="&sim-map;Transformation_2m2V"/>
+        <knowrob:startTime rdf:resource="&sim-map;timepoint_0"/>
+        <knowrob:objectActedOn rdf:resource="&knowrob;MagneticStirrer_2mh1"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&sim-map;Transformation_2m2V">
+        <rdf:type rdf:resource="&knowrob;Transformation"/>
+        <knowrob:quaternion rdf:datatype="&xsd;string">1.0 0.0 0.0 0.0</knowrob:quaternion>
+        <knowrob:translation rdf:datatype="&xsd;string">0.4 0.3 0.785</knowrob:translation>
+    </owl:NamedIndividual>
+
+</rdf:RDF>

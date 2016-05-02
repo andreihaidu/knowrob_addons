@@ -334,7 +334,7 @@ loop_pancake_exp :-
 	connect_to_db('SIM-oldpancake-db'),	
 	
 	% get the instance of the current experiment
-	exp_inst(EpInst),
+	ep_inst(EpInst),
 	
 	% check if pancake succesfully created
 	check_pancake_ext(EpInst),
@@ -353,7 +353,7 @@ loop_pouring_roundness(Limit) :-
 	connect_to_db('SIM-oldpancake-db'),	
 	
 	% get the instance of the current experiment
-	exp_inst(EpInst),
+	ep_inst(EpInst),
 	
 	% get events which occurred in the experiments
 	sg_occurs(EpInst, GraspMondaminEventInst, _, GraspMondaminEnd),
@@ -402,7 +402,7 @@ loop_flip :-
 	connect_to_db('SIM-oldpancake-db'),	
 	
 	% get the instance of the current experiment
-	exp_inst(EpInst),
+	ep_inst(EpInst),
 	% get events which occurred in the experiments
 	sg_occurs(EpInst, GraspMondaminEventInst, _, _),
 	% check for grasping events

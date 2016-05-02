@@ -38,4 +38,4 @@
 :- use_module(library('sim_games')).
 :- use_module(library('pancake_queries')).
 :- use_module(library('pizza_queries')).
-:- use_module(library('acat_queries')).
+:- use_module(library('chem_queries')).

@@ -31,7 +31,7 @@
 
 :- module(knowrob_sim_games,
     [
-    	exp_inst/1,
+    	ep_inst/1,
     	sg_task_context/2,
     	sg_occurs/2,
     	sg_occurs/4,
@@ -94,7 +94,7 @@
 
 
 % get the instance of the experiment
-exp_inst(EpInst) :-
+ep_inst(EpInst) :-
 	rdf_has(EpInst, rdf:type, knowrob:'RobotExperiment').
 
 

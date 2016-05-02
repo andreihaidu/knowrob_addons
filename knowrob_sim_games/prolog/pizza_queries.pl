@@ -352,7 +352,7 @@ loop_pizza_exp :-
 	connect_to_db('SIM-pizza-db'),	
 	
 	% get the instance of the current experiment
-	exp_inst(EpInst),
+	ep_inst(EpInst),
 	
 	% check if pancake succesfully created
 	%check_pizza_ext(EpInst),
